@@ -37,9 +37,9 @@ def plotOneByOne():
         plt.xlabel('Dates')
         plt.grid(True)
         plt.autoscale(axis='x', tight=False)
-        plt.plot(sensorData['soil_moisture_10_raw'], label="soil 10")
-        plt.plot(sensorData['soil_moisture_20_raw'], label="soil 20")
-        plt.plot(sensorData['soil_moisture_30_raw'], label="soil 30")
+        plt.plot(sensorData['soil_moisture_10'], label="soil 10")
+        plt.plot(sensorData['soil_moisture_20'], label="soil 20")
+        plt.plot(sensorData['soil_moisture_30'], label="soil 30")
         # plt.plot(sensorData['sensorHumidity'], label="Humidity")
         test = int(sensorData.shape[0] / 10)
         plt.xticks(range(0, sensorData.shape[0], test), sensorData['date'][::test], rotation=45)
@@ -70,4 +70,13 @@ def plotAll(allData):
     pass
 
 
-plotOneByOne()
+def changeValues():
+    df = pd.DataFrame(db.readingDataRaw.find({}))
+
+    df.loc[df.humidity <= 1, 'humidity':] *= 100
+
+    print(df.head)
+    pass
+
+
+changeValues()
