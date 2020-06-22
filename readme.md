@@ -9,3 +9,4 @@ makingGraph.py: Maak grafiek bodemvochtigheid van sensoren over alle meetingen d
 pastRain.py: Vergelijking met regen en verschillende waardes om te kijken voor correlatie.
 soilMoistureClean.py: Haal slechte bodemvochtigheid waardes uit Mongo DB.
 testRegenNU.py: Zelfde als pastRain maar dan kijken naar de toekomst.
+transportingData.py: Vanuit SQL database maak csv van Azure op basis van goeie sensore en haal hierbij weer data op.
